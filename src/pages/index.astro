@@ -6,6 +6,7 @@ const whatsappHref =
 
 const navItems = [
   { label: 'História', href: '#historia' },
+  { label: 'Caio Martins', href: '#caio-martins' },
   { label: 'Propostas', href: '#bandeiras' },
   { label: 'Apoie', href: '#apoie' },
 ];
@@ -25,10 +26,33 @@ const timeline = [
   },
 ];
 
+const caioCommitments = [
+  'Fortalecimento das unidades em funcionamento',
+  'Reabertura das unidades desativadas',
+  'Revitalização das escolas',
+  'Ampliação do ensino técnico',
+  'Permanência dos jovens no meio rural',
+];
+
+const educationPillars = [
+  {
+    title: 'Escola viva',
+    text: 'Unidades cuidadas, biblioteca, esporte, tecnologia e ambiente seguro para aprender com dignidade.',
+  },
+  {
+    title: 'Ensino técnico',
+    text: 'Formação ligada ao campo, ao comércio, ao turismo e às oportunidades reais de cada cidade.',
+  },
+  {
+    title: 'Juventude no interior',
+    text: 'Transporte, permanência e projetos que ajudem o jovem a crescer sem precisar deixar sua comunidade.',
+  },
+];
+
 const platform = [
   {
     title: 'Educação que transforma',
-    text: 'Revitalizar escolas, ampliar o ensino técnico e abrir caminhos para os jovens do interior permanecerem em suas comunidades.',
+    text: 'Fortalecer a FUCAM, revitalizar as Escolas Caio Martins e ampliar o ensino técnico para os jovens do interior.',
   },
   {
     title: 'Emprego e renda',
@@ -46,8 +70,8 @@ const platform = [
 
 const impactStats = [
   { value: '01', label: 'Educação como prioridade' },
-  { value: '02', label: 'Ensino técnico e permanência no interior' },
-  { value: '03', label: 'Frentes de trabalho para o Norte de Minas' },
+  { value: '05', label: 'Compromissos com a Caio Martins' },
+  { value: '04', label: 'Frentes de trabalho para o Norte de Minas' },
 ];
 
 const regionalPlan = [
@@ -56,42 +80,18 @@ const regionalPlan = [
   'Turismo de natureza, fé, gastronomia e cultura no Rio São Francisco',
 ];
 
-const audienceGroups = [
-  {
-    title: 'Educação',
-    text: 'Ex-alunos, professores e famílias que acreditam na escola como virada de vida.',
-    icon: 'book',
-  },
-  {
-    title: 'Trabalho',
-    text: 'Trabalhadores, comerciantes e jovens que querem oportunidade perto de casa.',
-    icon: 'briefcase',
-  },
-  {
-    title: 'Produção',
-    text: 'Pequenos produtores, agricultores familiares e pecuaristas do Norte de Minas.',
-    icon: 'sprout',
-  },
-  {
-    title: 'Tradição',
-    text: 'Comunidades rurais, romarias, cavalgadas e lideranças de fé.',
-    icon: 'heart',
-  },
+const audiences = [
+  'Ex-alunos, professores e famílias Caio Martins',
+  'Trabalhadores, comerciantes e jovens do Norte de Minas',
+  'Pequenos produtores, agricultores familiares e pecuaristas',
+  'Comunidades rurais, romarias, cavalgadas e lideranças de fé',
 ];
-
-const audienceIcons = {
-  book: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/>',
-  briefcase: '<path d="M10 6V5a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v1"/><path d="M3 7h18v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/><path d="M3 12h18"/><path d="M12 12v2"/>',
-  sprout: '<path d="M7 20h10"/><path d="M12 20V10"/><path d="M12 10C9 10 7 8 7 5c3 0 5 2 5 5z"/><path d="M12 14c4 0 7-3 7-7-4 0-7 3-7 7z"/>',
-  heart: '<path d="M20.8 4.6a5.4 5.4 0 0 0-7.6 0L12 5.8l-1.2-1.2a5.4 5.4 0 1 0-7.6 7.6L12 21l8.8-8.8a5.4 5.4 0 0 0 0-7.6z"/>',
-};
 ---
 
 <Layout>
   <header class="site-header">
     <div class="container header-inner">
       <a href="#inicio" class="brand" aria-label="Início — Amauri Damião">
-        <img src="/assets/Logomarca_O_Democrata_35 - Alan Leal.png" alt="" width="1024" height="1024" />
         <strong>Amauri Damião</strong>
       </a>
 
@@ -163,6 +163,15 @@ const audienceIcons = {
             A educação transforma vidas e constrói uma sociedade mais justa. Esse é o caminho que vamos seguir,
             juntos, por Minas Gerais.
           </p>
+          <figure class="hero-proof">
+            <img
+              src="/assets/ia-turma-escola-mg.png"
+              alt="Turma de estudantes em sala de aula no interior de Minas Gerais"
+              width="1680"
+              height="960"
+            />
+            <figcaption>Educação pública forte, perto de quem mais precisa.</figcaption>
+          </figure>
           <a class="hero-wa" href={whatsappHref} target="_blank" rel="noreferrer">
             <span class="wa-circle">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -183,6 +192,31 @@ const audienceIcons = {
       <div class="container reveal">
         <blockquote>A educação transformou minha vida, e pode transformar a vida de milhares de jovens mineiros.</blockquote>
         <cite>Amauri Damião</cite>
+      </div>
+    </section>
+
+    <!-- MINAS QUE EDUCA -->
+    <section class="section education-band">
+      <div class="education-band-bg" aria-hidden="true">
+        <img src="/assets/ia-turma-escola-mg.png" alt="" width="1680" height="960" />
+      </div>
+      <div class="container education-panel reveal">
+        <p class="eyebrow on-dark">Minas que educa</p>
+        <h2 class="title">A escola precisa abrir caminho para o trabalho, a cidadania e a permanência no interior.</h2>
+        <p class="lead">
+          A proposta é tratar educação como infraestrutura de futuro: salas bem cuidadas, ensino técnico, esporte,
+          cultura e formação conectada com a vida real das famílias mineiras.
+        </p>
+        <div class="impact-strip" aria-label="Resumo das prioridades">
+          {
+            impactStats.map((item) => (
+              <article>
+                <strong>{item.value}</strong>
+                <span>{item.label}</span>
+              </article>
+            ))
+          }
+        </div>
       </div>
     </section>
 
@@ -216,27 +250,35 @@ const audienceIcons = {
       </div>
     </section>
 
-    <!-- MINAS QUE EDUCA -->
-    <section class="section education-band">
-      <div class="education-band-bg" aria-hidden="true">
-        <img src="/assets/ia-turma-escola-mg.png" alt="" width="1680" height="960" />
-      </div>
-      <div class="container education-panel reveal">
-        <p class="eyebrow on-dark">Minas que educa</p>
-        <h2 class="title">A escola precisa abrir caminho para o trabalho, a cidadania e a permanência no interior.</h2>
-        <p class="lead">
-          A proposta é tratar educação como infraestrutura de futuro: salas bem cuidadas, ensino técnico, esporte,
-          cultura e formação conectada com a vida real das famílias mineiras.
-        </p>
-        <div class="impact-strip" aria-label="Resumo das prioridades">
-          {
-            impactStats.map((item) => (
-              <article>
-                <strong>{item.value}</strong>
-                <span>{item.label}</span>
-              </article>
-            ))
-          }
+    <!-- CAIO MARTINS -->
+    <section id="caio-martins" class="section section-dark">
+      <div class="container caio-grid">
+        <div class="reveal">
+          <p class="eyebrow on-dark">Família Caio Martins · FUCAM</p>
+          <h2 class="title">Se a Caio Martins transformou nossas vidas, precisa transformar novas gerações.</h2>
+          <p class="lead">
+            A defesa da Fundação Educacional Caio Martins é o coração desta candidatura — pela educação que muda o
+            rumo de quem mais precisa.
+          </p>
+        </div>
+        <div class="caio-visual reveal">
+          <img
+            src="/assets/ia-educacao-rural-caio-martins.png"
+            alt="Jovens em atividade de ensino técnico rural no interior de Minas Gerais"
+            width="1456"
+            height="1064"
+          />
+        </div>
+        <ul class="checklist reveal">
+          {caioCommitments.map((item) => <li>{item}</li>)}
+        </ul>
+        <div class="pillars reveal">
+          {educationPillars.map((item) => (
+            <article>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -262,7 +304,7 @@ const audienceIcons = {
               {regionalPlan.map((item) => <li>{item}</li>)}
             </ul>
           </div>
-        </div>
+          </div>
         <div class="platform">
           {
             platform.map((item, i) => (
@@ -280,34 +322,26 @@ const audienceIcons = {
     </section>
 
     <!-- QUEM REPRESENTA -->
-    <section class="section section-osso-2 represent-section">
-      <div class="represent-bg" aria-hidden="true">
-        <img src="/assets/ia-comunidade-interior-mg.png" alt="" width="1680" height="960" />
-      </div>
+    <section class="section section-osso-2">
       <div class="container represent-grid">
-        <div class="represent-copy reveal">
-          <div>
-            <p class="eyebrow">Quem Amauri representa</p>
-            <h2 class="title">Famílias do interior que valorizam educação, trabalho, fé e tradição.</h2>
-            <p class="lead">
-              Mais oportunidades, trabalho e dignidade pra todos — sem que ninguém precise abandonar sua cidade pra
-              crescer na vida.
-            </p>
-          </div>
-          <div class="audience">
-            {
-              audienceGroups.map((item) => (
-                <article>
-                  <span class="audience-icon" set:html={`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${audienceIcons[item.icon]}</svg>`} />
-                  <div>
-                    <h3>{item.title}</h3>
-                    <p>{item.text}</p>
-                  </div>
-                </article>
-              ))
-            }
-          </div>
+        <div class="reveal">
+          <p class="eyebrow">Quem Amauri representa</p>
+          <h2 class="title">Famílias do interior que valorizam educação, trabalho, fé e tradição.</h2>
+          <p class="lead">
+            Mais oportunidades, trabalho e dignidade pra todos — sem que ninguém precise abandonar sua cidade pra
+            crescer na vida.
+          </p>
         </div>
+        <ul class="audience reveal">
+          {
+            audiences.map((item, i) => (
+              <li>
+                <span>{String(i + 1).padStart(2, '0')}</span>
+                {item}
+              </li>
+            ))
+          }
+        </ul>
       </div>
     </section>
 
@@ -323,15 +357,29 @@ const audienceIcons = {
           </p>
           <div class="support-contacts">
             <a href="tel:+5531998533595">(31) 99853-3595</a>
+            <a href="mailto:jornalistaalanleal@gmail.com">jornalistaalanleal@gmail.com</a>
             <a href="https://www.instagram.com/dr_amauriwr" target="_blank" rel="noreferrer">@dr_amauriwr</a>
           </div>
         </div>
-        <div class="support-whatsapp reveal">
-          <span>Contato direto</span>
-          <h3>Fale com a campanha pelo WhatsApp.</h3>
-          <p>Toque no botão para mandar uma mensagem e entrar na rede de apoio.</p>
-          <a class="btn btn-milho" href={whatsappHref} target="_blank" rel="noreferrer">Ir para o WhatsApp</a>
-        </div>
+        <form class="support-form reveal" id="support-form">
+          <label>
+            Nome
+            <input type="text" name="nome" placeholder="Seu nome" />
+          </label>
+          <label>
+            Cidade
+            <input type="text" name="cidade" placeholder="Sua cidade" />
+          </label>
+          <label>
+            Telefone
+            <input type="tel" name="telefone" placeholder="(00) 00000-0000" />
+          </label>
+          <label>
+            Como quer ajudar?
+            <textarea name="mensagem" rows="4" placeholder="Conte como você quer participar"></textarea>
+          </label>
+          <button class="btn btn-milho" type="submit" style="width:100%">Enviar pelo WhatsApp</button>
+        </form>
       </div>
     </section>
   </main>
@@ -379,6 +427,21 @@ const audienceIcons = {
         (mobileMenu as HTMLElement).hidden = true;
       }),
     );
+
+    document.querySelector('#support-form')?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      if (!(form instanceof HTMLFormElement)) return;
+      const data = new FormData(form);
+      const message = [
+        'Olá, quero apoiar a campanha do Amauri Damião.',
+        `Nome: ${data.get('nome') || ''}`,
+        `Cidade: ${data.get('cidade') || ''}`,
+        `Telefone: ${data.get('telefone') || ''}`,
+        `Mensagem: ${data.get('mensagem') || ''}`,
+      ].join('\n');
+      window.open(`https://wa.me/5531998533595?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+    });
 
     const observer = new IntersectionObserver(
       (entries) => {
