@@ -8,9 +8,9 @@ interface Props {
 }
 
 const {
-  title = 'Amauri - Campanha',
-  description = 'Site oficial de campanha — Amauri.',
-  image = '/assets/og-default.webp',
+  title = 'Amauri Damião | Pré-candidato a Deputado Estadual',
+  description = 'Educação que transforma, oportunidades para o interior e voz forte para o Norte de Minas.',
+  image = '/assets/Gemini_Generated_Image_q9gswyq9gswyq9gs.webp',
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://candidato-amauri.com.br');
@@ -27,7 +27,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://candidato-a
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <meta name="theme-color" content="#0F110E" />
+    <meta name="theme-color" content="#1d5a57" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -47,7 +47,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://candidato-a
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Expanded:wght@600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&family=Caveat:wght@600;700&display=swap"
       rel="stylesheet"
     />
   </head>
