@@ -507,6 +507,28 @@
     margin: 0;
     filter: drop-shadow(-8px 12px 22px rgb(0 0 0 / 0.22));
   }
+  .hero-doodle {
+    position: absolute;
+    z-index: 2;
+    top: 4%;
+    right: -4%;
+    width: 124px;
+    transform: rotate(-7deg);
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.05;
+    color: var(--hero-gold);
+    text-align: center;
+    pointer-events: none;
+  }
+  .hero-doodle svg {
+    display: block;
+    width: 46px;
+    height: 34px;
+    margin: 2px auto 0;
+    color: var(--hero-gold);
+  }
   @media (min-width: 900px) {
     .hero { padding-top: 92px; }
     .hero-bg {
@@ -531,6 +553,7 @@
     }
     .hero-body { align-self: end; padding-bottom: clamp(16px, 3vw, 40px); }
     .hero-photo { align-self: end; justify-self: end; margin-top: 0; width: min(100%, 620px); }
+    .hero-doodle { width: 150px; font-size: 30px; right: 2%; top: 8%; }
   }
 
   /* ---------- faixa de citação (verde) ---------- */
@@ -717,6 +740,77 @@
     color: var(--osso);
   }
   .section-dark .title { color: var(--osso); }
+
+  .caio-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(32px, 5vw, 64px);
+    align-items: start;
+  }
+  .caio-grid .title { max-width: 16ch; }
+  .caio-grid .lead { color: var(--folha-clara); max-width: 40ch; margin-top: 22px; }
+  .caio-visual {
+    overflow: hidden;
+    border: 1px solid rgb(255 255 255 / 0.18);
+    background: rgb(255 255 255 / 0.08);
+  }
+  .caio-visual img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .checklist { display: grid; gap: 0; }
+  .checklist li {
+    list-style: none;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: baseline;
+    padding: 18px 4px;
+    border-top: 1px solid rgb(255 255 255 / 0.16);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 17px;
+  }
+  .checklist li:last-child { border-bottom: 1px solid rgb(255 255 255 / 0.16); }
+  .checklist li::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--milho);
+    border-radius: 50%;
+    position: relative;
+    top: 2px;
+    box-shadow: inset 0 0 0 3px var(--mata), inset 0 0 0 5px var(--milho);
+  }
+  .pillars {
+    display: grid;
+    gap: 14px;
+  }
+  .pillars article {
+    padding: 22px;
+    background: rgb(255 255 255 / 0.1);
+    border: 1px solid rgb(255 255 255 / 0.18);
+  }
+  .pillars h3 {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 1.1;
+    color: var(--milho);
+  }
+  .pillars p {
+    margin: 10px 0 0;
+    font-size: 16px;
+    line-height: 1.55;
+    color: rgb(255 255 255 / 0.78);
+  }
+
+  @media (min-width: 880px) {
+    .caio-grid { grid-template-columns: 1fr 1fr; }
+    .pillars { grid-column: 1 / -1; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
 
   /* ---------- bandeiras (lista editorial numerada) ---------- */
   .section-head { max-width: 34rem; margin-bottom: clamp(40px, 5vw, 64px); }
@@ -940,33 +1034,39 @@
   }
   .support-contacts a:hover { color: var(--milho); }
 
-  .support-whatsapp {
+  .support-form {
     display: grid;
-    gap: 14px;
+    gap: 16px;
     background: var(--osso);
     border-radius: 3px;
     padding: clamp(24px, 4vw, 36px);
   }
-  .support-whatsapp > span {
+  .support-form label {
+    display: grid;
+    gap: 7px;
     font-family: var(--font-sans);
     font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 0.14em;
+    font-size: 12px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--mata-2);
-  }
-  .support-whatsapp h3 {
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: clamp(26px, 3vw, 38px);
-    line-height: 1.05;
     color: var(--mata);
   }
-  .support-whatsapp p {
-    margin: 0 0 10px;
-    color: var(--tinta-soft);
-    font-size: 17px;
-    line-height: 1.55;
+  .support-form input,
+  .support-form textarea {
+    width: 100%;
+    border: 1.5px solid var(--linha);
+    border-radius: 2px;
+    background: var(--osso-3);
+    padding: 13px 14px;
+    color: var(--tinta);
+    font: 400 16px/1.5 var(--font-serif);
+    outline: none;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+  }
+  .support-form input:focus,
+  .support-form textarea:focus {
+    border-color: var(--mata-2);
+    box-shadow: inset 0 0 0 1px var(--mata-2);
   }
 
   @media (min-width: 880px) {
