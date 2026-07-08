@@ -1,0 +1,105 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const whatsappHref =
+  'https://wa.me/5531998533595?text=Ol%C3%A1%2C%20quero%20apoiar%20a%20campanha%20do%20Amauri%20Dami%C3%A3o.';
+
+const posts = (await getCollection('noticias', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const dateFmt = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
+---
+
+<Layout title="Blog | Amauri Damião" description="Ideias, propostas e a caminhada de Amauri Damião pelo Norte de Minas.">
+  <header class="site-header is-scrolled">
+    <div class="container header-inner">
+      <a href="/" class="brand" aria-label="Início — Amauri Damião">
+        <picture>
+          <source srcset="/assets/logo-amauri.webp" type="image/webp" />
+          <img src="/assets/logo-amauri.png" alt="" width="76" height="76" />
+        </picture>
+        <strong>Amauri Damião</strong>
+      </a>
+      <div class="header-cta">
+        <a class="btn btn-outline" href="/">Início</a>
+        <a class="btn btn-milho" href={whatsappHref} target="_blank" rel="noreferrer">Quero apoiar</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="blog-page">
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Blog</p>
+          <h1 class="title">Ideias, propostas e a caminhada pelo Norte de Minas.</h1>
+        </div>
+
+        {
+          posts.length === 0 ? (
+            <p class="lead">Em breve, novos conteúdos por aqui.</p>
+          ) : (
+            <div class="blog-list">
+              {posts.map((post) => (
+                <article class="blog-card">
+                  {post.data.image && (
+                    <a class="blog-card-media" href={`/blog/${post.id}`}>
+                      <img src={post.data.image} alt={post.data.imageAlt ?? ''} loading="lazy" />
+                    </a>
+                  )}
+                  <div class="blog-card-body">
+                    <time datetime={post.data.date.toISOString()}>{dateFmt.format(post.data.date)}</time>
+                    <h2><a href={`/blog/${post.id}`}>{post.data.title}</a></h2>
+                    <p>{post.data.description}</p>
+                    <a class="blog-more" href={`/blog/${post.id}`}>Ler mais →</a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          )
+        }
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <picture>
+          <source srcset="/assets/logo-amauri.webp" type="image/webp" />
+          <img src="/assets/logo-amauri.png" alt="Amauri Damião" width="64" height="64" />
+        </picture>
+        <div>
+          <strong>Amauri Damião</strong>
+          <p>Pré-candidato a Deputado Estadual · Democrata</p>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="/">Início</a>
+        <a href={whatsappHref} target="_blank" rel="noreferrer">WhatsApp</a>
+        <a href="https://www.instagram.com/dr_amauriwr" target="_blank" rel="noreferrer">Instagram</a>
+        <span>São Francisco · Norte de Minas</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" data-whatsapp href={whatsappHref} target="_blank" rel="noreferrer" aria-label="Falar pelo WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.1.1.3 0 .5-.3.5-.5.7-.7 1-.2.2-.4.5-.2.8.2.4.9 1.5 2 2.4 1.3 1.2 2.4 1.5 2.7 1.7.3.1.5.1.7-.1.2-.3.8-.9 1-1.2.2-.3.4-.2.7-.1.3.1 1.8.8 2.1 1 .3.1.5.2.6.3.1.2.1.7-.1 1.3Z" />
+    </svg>
+    <strong>WhatsApp</strong>
+  </a>
+
+  <script>
+    const phone = '5531998533595';
+    const text = encodeURIComponent('Olá, quero apoiar a campanha do Amauri Damião.');
+    const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent);
+    document.querySelectorAll<HTMLAnchorElement>('[data-whatsapp]').forEach((el) => {
+      el.href = isMobile
+        ? `whatsapp://send?phone=${phone}&text=${text}`
+        : `https://wa.me/${phone}?text=${text}`;
+    });
+  </script>
+</Layout>

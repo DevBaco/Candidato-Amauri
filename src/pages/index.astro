@@ -1,15 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
 const whatsappHref =
   'https://wa.me/5531998533595?text=Ol%C3%A1%2C%20quero%20apoiar%20a%20campanha%20do%20Amauri%20Dami%C3%A3o.';
 
 const navItems = [
   { label: 'História', href: '#historia' },
-  { label: 'Caio Martins', href: '#caio-martins' },
+  { label: 'Blog', href: '#blog' },
   { label: 'Propostas', href: '#bandeiras' },
   { label: 'Apoie', href: '#apoie' },
 ];
+
+const dateFmt = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
+const posts = (await getCollection('noticias', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
 
 const timeline = [
   {
@@ -23,29 +29,6 @@ const timeline = [
   {
     label: 'Compromisso',
     text: 'Não vem da política tradicional. Sua caminhada nasceu do trabalho e da convivência com as necessidades do povo.',
-  },
-];
-
-const caioCommitments = [
-  'Fortalecimento das unidades em funcionamento',
-  'Reabertura das unidades desativadas',
-  'Revitalização das escolas',
-  'Ampliação do ensino técnico',
-  'Permanência dos jovens no meio rural',
-];
-
-const educationPillars = [
-  {
-    title: 'Escola viva',
-    text: 'Unidades cuidadas, biblioteca, esporte, tecnologia e ambiente seguro para aprender com dignidade.',
-  },
-  {
-    title: 'Ensino técnico',
-    text: 'Formação ligada ao campo, ao comércio, ao turismo e às oportunidades reais de cada cidade.',
-  },
-  {
-    title: 'Juventude no interior',
-    text: 'Transporte, permanência e projetos que ajudem o jovem a crescer sem precisar deixar sua comunidade.',
   },
 ];
 
@@ -80,18 +63,16 @@ const regionalPlan = [
   'Turismo de natureza, fé, gastronomia e cultura no Rio São Francisco',
 ];
 
-const audiences = [
-  'Ex-alunos, professores e famílias Caio Martins',
-  'Trabalhadores, comerciantes e jovens do Norte de Minas',
-  'Pequenos produtores, agricultores familiares e pecuaristas',
-  'Comunidades rurais, romarias, cavalgadas e lideranças de fé',
-];
 ---
 
 <Layout>
   <header class="site-header">
     <div class="container header-inner">
       <a href="#inicio" class="brand" aria-label="Início — Amauri Damião">
+        <picture>
+          <source srcset="/assets/logo-amauri.webp" type="image/webp" />
+          <img src="/assets/logo-amauri.png" alt="" width="76" height="76" />
+        </picture>
         <strong>Amauri Damião</strong>
       </a>
 
@@ -156,13 +137,6 @@ const audiences = [
           <div class="hero-figure">
             <img src="/assets/img_9490 - Alan Leal.png" alt="Amauri Damião" width="400" height="600" />
           </div>
-          <span class="hero-doodle" aria-hidden="true">
-            Educação é a base de tudo!
-            <svg viewBox="0 0 46 34" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
-              <path d="M4 4c10 14 22 20 38 22" />
-              <path d="M30 26l12 0M40 18l2 8" />
-            </svg>
-          </span>
         </div>
 
         <div class="hero-body reveal">
@@ -249,36 +223,40 @@ const audiences = [
       </div>
     </section>
 
-    <!-- CAIO MARTINS -->
-    <section id="caio-martins" class="section section-dark">
-      <div class="container caio-grid">
-        <div class="reveal">
-          <p class="eyebrow on-dark">Família Caio Martins · FUCAM</p>
-          <h2 class="title">Se a Caio Martins transformou nossas vidas, precisa transformar novas gerações.</h2>
-          <p class="lead">
-            A defesa da Fundação Educacional Caio Martins é o coração desta candidatura — pela educação que muda o
-            rumo de quem mais precisa.
-          </p>
+    <!-- BLOG -->
+    <section id="blog" class="section section-dark">
+      <div class="container">
+        <div class="section-head reveal blog-head">
+          <div>
+            <p class="eyebrow on-dark">Blog</p>
+            <h2 class="title">Ideias, propostas e a caminhada pelo Norte de Minas.</h2>
+          </div>
+          <a class="btn btn-outline" href="/blog">Ver todos</a>
         </div>
-        <div class="caio-visual reveal">
-          <img
-            src="/assets/ia-educacao-rural-caio-martins.png"
-            alt="Jovens em atividade de ensino técnico rural no interior de Minas Gerais"
-            width="1456"
-            height="1064"
-          />
-        </div>
-        <ul class="checklist reveal">
-          {caioCommitments.map((item) => <li>{item}</li>)}
-        </ul>
-        <div class="pillars reveal">
-          {educationPillars.map((item) => (
-            <article>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </article>
-          ))}
-        </div>
+
+        {
+          posts.length === 0 ? (
+            <p class="lead">Em breve, novos conteúdos por aqui.</p>
+          ) : (
+            <div class="blog-list reveal">
+              {posts.map((post) => (
+                <article class="blog-card">
+                  {post.data.image && (
+                    <a class="blog-card-media" href={`/blog/${post.id}`}>
+                      <img src={post.data.image} alt={post.data.imageAlt ?? ''} loading="lazy" />
+                    </a>
+                  )}
+                  <div class="blog-card-body">
+                    <time datetime={post.data.date.toISOString()}>{dateFmt.format(post.data.date)}</time>
+                    <h3><a href={`/blog/${post.id}`}>{post.data.title}</a></h3>
+                    <p>{post.data.description}</p>
+                    <a class="blog-more" href={`/blog/${post.id}`}>Ler mais →</a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          )
+        }
       </div>
     </section>
 
@@ -320,30 +298,6 @@ const audiences = [
       </div>
     </section>
 
-    <!-- QUEM REPRESENTA -->
-    <section class="section section-osso-2">
-      <div class="container represent-grid">
-        <div class="reveal">
-          <p class="eyebrow">Quem Amauri representa</p>
-          <h2 class="title">Famílias do interior que valorizam educação, trabalho, fé e tradição.</h2>
-          <p class="lead">
-            Mais oportunidades, trabalho e dignidade pra todos — sem que ninguém precise abandonar sua cidade pra
-            crescer na vida.
-          </p>
-        </div>
-        <ul class="audience reveal">
-          {
-            audiences.map((item, i) => (
-              <li>
-                <span>{String(i + 1).padStart(2, '0')}</span>
-                {item}
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </section>
-
     <!-- APOIE -->
     <section id="apoie" class="section section-dark">
       <div class="container support-grid">
@@ -360,39 +314,37 @@ const audiences = [
             <a href="https://www.instagram.com/dr_amauriwr" target="_blank" rel="noreferrer">@dr_amauriwr</a>
           </div>
         </div>
-        <form class="support-form reveal" id="support-form">
-          <label>
-            Nome
-            <input type="text" name="nome" placeholder="Seu nome" />
-          </label>
-          <label>
-            Cidade
-            <input type="text" name="cidade" placeholder="Sua cidade" />
-          </label>
-          <label>
-            Telefone
-            <input type="tel" name="telefone" placeholder="(00) 00000-0000" />
-          </label>
-          <label>
-            Como quer ajudar?
-            <textarea name="mensagem" rows="4" placeholder="Conte como você quer participar"></textarea>
-          </label>
-          <button class="btn btn-milho" type="submit" style="width:100%">Enviar pelo WhatsApp</button>
-        </form>
+        <div class="support-cta reveal">
+          <span class="wa-circle wa-circle-lg">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.1.1.3 0 .5-.3.5-.5.7-.7 1-.2.2-.4.5-.2.8.2.4.9 1.5 2 2.4 1.3 1.2 2.4 1.5 2.7 1.7.3.1.5.1.7-.1.2-.3.8-.9 1-1.2.2-.3.4-.2.7-.1.3.1 1.8.8 2.1 1 .3.1.5.2.6.3.1.2.1.7-.1 1.3Z" />
+            </svg>
+          </span>
+          <h3>Fale direto pelo WhatsApp</h3>
+          <p>Mande sua mensagem e some sua voz à nossa mobilização. É rápido e direto.</p>
+          <a class="btn btn-milho" data-whatsapp href={whatsappHref} target="_blank" rel="noreferrer" style="width:100%">Falar no WhatsApp</a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-grid">
-      <div>
-        <strong>Amauri Damião</strong>
-        <p>Pré-candidato a Deputado Estadual · Democrata</p>
+      <div class="footer-brand">
+        <picture>
+          <source srcset="/assets/logo-amauri.webp" type="image/webp" />
+          <img src="/assets/logo-amauri.png" alt="Amauri Damião" width="64" height="64" />
+        </picture>
+        <div>
+          <strong>Amauri Damião</strong>
+          <p>Pré-candidato a Deputado Estadual · Democrata</p>
+        </div>
       </div>
       <div class="footer-mid">
         <img src="/assets/Logomarca_O_Democrata_35 - Alan Leal.png" alt="Democrata" width="1024" height="1024" />
       </div>
       <div class="footer-links">
+        <a href="/blog">Blog</a>
         <a href={whatsappHref} target="_blank" rel="noreferrer">WhatsApp</a>
         <a href="https://www.instagram.com/dr_amauriwr" target="_blank" rel="noreferrer">Instagram</a>
         <span>São Francisco · Norte de Minas</span>
@@ -400,7 +352,7 @@ const audiences = [
     </div>
   </footer>
 
-  <a class="whatsapp-float" href={whatsappHref} target="_blank" rel="noreferrer" aria-label="Falar pelo WhatsApp">
+  <a class="whatsapp-float" data-whatsapp href={whatsappHref} target="_blank" rel="noreferrer" aria-label="Falar pelo WhatsApp">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.1.1.3 0 .5-.3.5-.5.7-.7 1-.2.2-.4.5-.2.8.2.4.9 1.5 2 2.4 1.3 1.2 2.4 1.5 2.7 1.7.3.1.5.1.7-.1.2-.3.8-.9 1-1.2.2-.3.4-.2.7-.1.3.1 1.8.8 2.1 1 .3.1.5.2.6.3.1.2.1.7-.1 1.3Z" />
     </svg>
@@ -427,19 +379,14 @@ const audiences = [
       }),
     );
 
-    document.querySelector('#support-form')?.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const form = event.currentTarget;
-      if (!(form instanceof HTMLFormElement)) return;
-      const data = new FormData(form);
-      const message = [
-        'Olá, quero apoiar a campanha do Amauri Damião.',
-        `Nome: ${data.get('nome') || ''}`,
-        `Cidade: ${data.get('cidade') || ''}`,
-        `Telefone: ${data.get('telefone') || ''}`,
-        `Mensagem: ${data.get('mensagem') || ''}`,
-      ].join('\n');
-      window.open(`https://wa.me/5531998533595?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+    // WhatsApp: no celular abre o app direto (deep link); no desktop usa wa.me
+    const waPhone = '5531998533595';
+    const waText = encodeURIComponent('Olá, quero apoiar a campanha do Amauri Damião.');
+    const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent);
+    document.querySelectorAll<HTMLAnchorElement>('[data-whatsapp]').forEach((el) => {
+      el.href = isMobile
+        ? `whatsapp://send?phone=${waPhone}&text=${waText}`
+        : `https://wa.me/${waPhone}?text=${waText}`;
     });
 
     const observer = new IntersectionObserver(
