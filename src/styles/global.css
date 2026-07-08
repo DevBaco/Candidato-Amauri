@@ -346,7 +346,8 @@
     color: var(--osso);
   }
   .hero-tagline b { color: var(--hero-gold); font-weight: 800; }
-  .hero-tagline svg { width: 20px; height: 20px; color: var(--hero-gold); }
+  .hero-tagline svg { width: 20px; height: 20px; flex: none; color: var(--hero-gold); }
+  .hero-tagline-txt { text-wrap: balance; }
   .hero-social { display: flex; gap: 8px; }
   .hero-social a {
     display: grid;
@@ -558,10 +559,11 @@
       align-self: stretch;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding-top: clamp(12px, 3vw, 36px);
+      justify-content: flex-end;
+      padding-top: clamp(40px, 9vh, 120px);
+      padding-bottom: clamp(10px, 2vw, 22px);
     }
-    .hero-body { align-self: end; padding-bottom: clamp(16px, 3vw, 40px); }
+    .hero-body { align-self: end; padding-bottom: clamp(24px, 4vw, 52px); }
     .hero-photo { align-self: end; justify-self: end; margin-top: 0; width: min(100%, 620px); }
     .hero-doodle { width: 150px; font-size: 30px; right: 2%; top: 8%; }
   }
