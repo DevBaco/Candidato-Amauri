@@ -180,7 +180,7 @@
   }
   .site-header.is-scrolled {
     border-bottom-color: var(--linha);
-    background: color-mix(in srgb, var(--osso) 96%, transparent);
+    background: #ffffff;
     backdrop-filter: blur(12px);
   }
 
@@ -224,12 +224,22 @@
     color: var(--mata);
   }
   .brand img {
-    width: 76px;
-    height: 76px;
-    border-radius: 8px;
+    height: 62px;
+    width: auto;
     object-fit: contain;
-    padding: 4px;
     transition: background-color 220ms ease, box-shadow 220ms ease;
+  }
+  .brand-democrata { height: 56px; }
+  .brand-sep {
+    width: 1px;
+    height: 42px;
+    background: var(--linha);
+    flex: none;
+  }
+  @media (max-width: 620px) {
+    .brand img { height: 46px; }
+    .brand-democrata { height: 42px; }
+    .brand-sep { height: 30px; }
   }
   .brand strong {
     font-family: var(--font-sans);
@@ -473,7 +483,7 @@
     position: relative;
     justify-self: center;
     align-self: end;
-    width: min(108%, 500px);
+    width: min(100%, 420px);
     margin-top: 8px;
   }
   .hero-blob {
@@ -653,11 +663,13 @@
     padding: 22px;
     background: rgb(15 59 51 / 0.72);
   }
-  .impact-strip strong {
-    font-family: var(--font-display);
-    font-size: clamp(36px, 5vw, 60px);
-    line-height: 0.9;
+  .impact-strip .impact-ico {
+    display: inline-flex;
     color: var(--milho);
+  }
+  .impact-strip .impact-ico svg {
+    width: clamp(38px, 5vw, 48px);
+    height: clamp(38px, 5vw, 48px);
   }
   .impact-strip span {
     font-family: var(--font-sans);
@@ -1138,9 +1150,24 @@
   .blog-head {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
-    gap: 18px;
+    gap: 18px 24px;
+    max-width: none;
+    margin-inline: 0;
+    text-align: left;
+  }
+  .blog-head > div { flex: 1 1 auto; }
+  .blog-head .btn { flex: none; }
+  /* botão contornado sobre fundo escuro (visível) */
+  .section-dark .btn-outline {
+    border-color: rgb(255 255 255 / 0.55);
+    color: var(--osso);
+  }
+  .section-dark .btn-outline:hover {
+    background: var(--osso);
+    color: var(--mata);
+    border-color: transparent;
   }
   .blog-list {
     display: grid;

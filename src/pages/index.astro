@@ -51,10 +51,19 @@ const platform = [
   },
 ];
 
+const impactIcons: Record<string, string> = {
+  educacao:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-5"/><path d="M22 10v5"/></svg>',
+  compromissos:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="3" width="8" height="4" rx="1"/><path d="M9 5H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3"/><path d="m9 14 2 2 4-4"/></svg>',
+  trabalho:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><path d="M2 13h20"/></svg>',
+};
+
 const impactStats = [
-  { value: '01', label: 'Educação como prioridade' },
-  { value: '05', label: 'Compromissos com a Caio Martins' },
-  { value: '04', label: 'Frentes de trabalho para o Norte de Minas' },
+  { icon: 'educacao', label: 'Educação como prioridade' },
+  { icon: 'compromissos', label: 'Compromissos com a Caio Martins' },
+  { icon: 'trabalho', label: 'Frentes de trabalho para o Norte de Minas' },
 ];
 
 const regionalPlan = [
@@ -66,14 +75,18 @@ const regionalPlan = [
 ---
 
 <Layout>
-  <header class="site-header">
+  <header class="site-header is-scrolled">
     <div class="container header-inner">
       <a href="#inicio" class="brand" aria-label="Início — Amauri Damião">
         <picture>
           <source srcset="/assets/logo-amauri.webp" type="image/webp" />
-          <img src="/assets/logo-amauri.png" alt="" width="76" height="76" />
+          <img src="/assets/logo-amauri.png" alt="Amauri Damião" width="76" height="76" />
         </picture>
-        <strong>Amauri Damião</strong>
+        <span class="brand-sep" aria-hidden="true"></span>
+        <picture>
+          <source srcset="/assets/logo-democrata.webp" type="image/webp" />
+          <img class="brand-democrata" src="/assets/logo-democrata.png" alt="Democrata 35" width="811" height="676" />
+        </picture>
       </a>
 
       <nav class="nav" aria-label="Navegação principal">
@@ -128,8 +141,7 @@ const regionalPlan = [
         <div class="hero-head reveal">
           <h1 class="hero-name">Amauri</h1>
           <p class="hero-surname">DAMIÃO</p>
-          <p class="hero-role">Deputado Estadual</p>
-          <p class="hero-number">35777</p>
+          <p class="hero-role">Pré-candidato a Deputado Estadual</p>
         </div>
 
         <div class="hero-photo reveal">
@@ -184,7 +196,7 @@ const regionalPlan = [
           {
             impactStats.map((item) => (
               <article>
-                <strong>{item.value}</strong>
+                <span class="impact-ico" set:html={impactIcons[item.icon]} />
                 <span>{item.label}</span>
               </article>
             ))
@@ -360,11 +372,8 @@ const regionalPlan = [
   </a>
 
   <script>
-    const header = document.querySelector('.site-header');
     const menuButton = document.querySelector('.menu-toggle');
     const mobileMenu = document.querySelector('.mobile-menu');
-
-    const onScroll = () => header?.classList.toggle('is-scrolled', window.scrollY > 8);
 
     menuButton?.addEventListener('click', () => {
       const open = menuButton.getAttribute('aria-expanded') === 'true';
@@ -401,8 +410,5 @@ const regionalPlan = [
       { threshold: 0.12 },
     );
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
   </script>
 </Layout>
