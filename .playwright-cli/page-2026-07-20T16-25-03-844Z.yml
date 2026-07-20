@@ -1,0 +1,199 @@
+- generic [ref=f12e1]:
+  - banner [ref=f12e2]:
+    - generic [ref=f12e3]:
+      - link "Início — Amauri Damião" [ref=f12e4] [cursor=pointer]:
+        - /url: "#inicio"
+        - img "Amauri Damião" [ref=f12e5]
+        - img "Democrata 35" [ref=f12e8]
+      - navigation "Navegação principal" [ref=f12e9]:
+        - link "História" [ref=f12e10] [cursor=pointer]:
+          - /url: "#historia"
+        - link "Blog" [ref=f12e11] [cursor=pointer]:
+          - /url: "#blog"
+        - link "Propostas" [ref=f12e12] [cursor=pointer]:
+          - /url: "#bandeiras"
+        - link "Apoie" [ref=f12e13] [cursor=pointer]:
+          - /url: "#apoie"
+      - generic [ref=f12e14]:
+        - link "Instagram" [ref=f12e15] [cursor=pointer]:
+          - /url: https://www.instagram.com/dr_amauriwr
+        - link "Quero apoiar" [ref=f12e16] [cursor=pointer]:
+          - /url: https://wa.me/5531998533595?text=Ol%C3%A1%2C%20quero%20apoiar%20a%20campanha%20do%20Amauri%20Dami%C3%A3o.
+  - main [ref=f12e17]:
+    - generic [ref=f12e18]:
+      - generic [ref=f12e22]:
+        - generic [ref=f12e23]:
+          - text: Educação hoje,
+          - generic [ref=f12e26]: futuro amanhã.
+        - generic [ref=f12e27]:
+          - heading "Amauri" [level=1] [ref=f12e28]
+          - paragraph [ref=f12e29]: DAMIÃO
+          - paragraph [ref=f12e30]: Pré-candidato a Deputado Estadual
+        - paragraph [ref=f12e31]:
+          - text: Mais escolas, mais oportunidades,
+          - emphasis [ref=f12e32]: um futuro melhor
+          - text: para todos.
+        - paragraph [ref=f12e33]: Educação que transforma vidas, cria trabalho e abre caminhos para quem vive no interior de Minas.
+        - generic [ref=f12e34]:
+          - link "Fale com o Amauri" [ref=f12e35] [cursor=pointer]:
+            - /url: https://wa.me/5531998533595?text=Ol%C3%A1%2C%20quero%20apoiar%20a%20campanha%20do%20Amauri%20Dami%C3%A3o.
+          - link "Conheça as bandeiras" [ref=f12e38] [cursor=pointer]:
+            - /url: "#bandeiras"
+            - text: Conheça as bandeiras
+            - generic [ref=f12e39]: ↓
+      - generic "Compromissos centrais" [ref=f12e40]:
+        - generic [ref=f12e41]:
+          - generic [ref=f12e42]: Educação
+          - generic [ref=f12e43]: Emprego e renda
+          - generic [ref=f12e44]: Desenvolvimento regional
+    - generic [ref=f12e46]:
+      - figure "Norte de Minas · lado a lado com o povo da roça" [ref=f12e47]:
+        - img "Amauri Damião conversando com moradores da zona rural, embaixo de uma árvore" [ref=f12e48]
+      - generic [ref=f12e50]:
+        - paragraph [ref=f12e51]: História de vida
+        - 'heading "Da Jiboia às Escolas Caio Martins: disciplina, trabalho e compromisso." [level=2] [ref=f12e52]'
+        - generic [ref=f12e53]:
+          - article [ref=f12e54]:
+            - generic [ref=f12e55]: Origem
+            - paragraph [ref=f12e56]: Natural do distrito de Jiboia, em São Francisco, cresceu perto da realidade das famílias rurais do Norte de Minas.
+          - article [ref=f12e57]:
+            - generic [ref=f12e58]: Formação
+            - paragraph [ref=f12e59]: Ex-aluno das Escolas Caio Martins, em Esmeraldas. Atribui sua trajetória à disciplina, ao respeito e à educação que recebeu.
+          - article [ref=f12e60]:
+            - generic [ref=f12e61]: Compromisso
+            - paragraph [ref=f12e62]: Não vem da política tradicional. Sua caminhada nasceu do trabalho e da convivência com as necessidades do povo.
+    - generic [ref=f12e65]:
+      - paragraph [ref=f12e66]: Minas que educa
+      - heading "A escola precisa abrir caminho para o trabalho, a cidadania e a permanência no interior." [level=2] [ref=f12e67]
+      - paragraph [ref=f12e68]: "A proposta é tratar educação como infraestrutura de futuro: salas bem cuidadas, ensino técnico, esporte, cultura e formação conectada com a vida real das famílias mineiras."
+      - generic "Resumo das prioridades" [ref=f12e69]:
+        - article [ref=f12e70]:
+          - generic [ref=f12e75]: Educação como prioridade
+        - article [ref=f12e76]:
+          - generic [ref=f12e82]: Compromissos com a Caio Martins
+        - article [ref=f12e83]:
+          - generic [ref=f12e88]: Frentes de trabalho para o Norte de Minas
+    - generic [ref=f12e89]:
+      - text: “
+      - generic [ref=f12e90]:
+        - blockquote [ref=f12e91]: A educação transformou minha vida, e pode transformar a vida de milhares de jovens mineiros.
+        - generic [ref=f12e92]: Amauri Damião
+    - generic [ref=f12e94]:
+      - generic [ref=f12e95]:
+        - generic [ref=f12e96]:
+          - paragraph [ref=f12e97]: Blog
+          - heading "Ideias, propostas e a caminhada pelo Norte de Minas." [level=2] [ref=f12e98]
+        - link "Ver todos" [ref=f12e99] [cursor=pointer]:
+          - /url: /blog
+      - generic [ref=f12e100]:
+        - article [ref=f12e101]:
+          - link [ref=f12e102] [cursor=pointer]:
+            - /url: /blog/educacao-tecnica-no-interior
+            - img "Jovens em atividade de ensino técnico rural no interior de Minas Gerais" [ref=f12e103]
+          - generic [ref=f12e104]:
+            - time [ref=f12e105]: 01 de julho de 2026
+            - heading [level=3] [ref=f12e106]:
+              - link "Ensino técnico é caminho para o interior de Minas" [ref=f12e107] [cursor=pointer]:
+                - /url: /blog/educacao-tecnica-no-interior
+            - paragraph [ref=f12e108]: Formar jovens perto de casa, ligados ao campo, ao comércio e ao turismo da região.
+            - link "Ler mais →" [ref=f12e109] [cursor=pointer]:
+              - /url: /blog/educacao-tecnica-no-interior
+        - article [ref=f12e110]:
+          - link [ref=f12e111] [cursor=pointer]:
+            - /url: /blog/rio-sao-francisco-turismo
+            - img "Rio São Francisco, agricultura irrigada e comunidades rurais do Norte de Minas" [ref=f12e112]
+          - generic [ref=f12e113]:
+            - time [ref=f12e114]: 24 de junho de 2026
+            - heading [level=3] [ref=f12e115]:
+              - link "O Rio São Francisco no centro das decisões" [ref=f12e116] [cursor=pointer]:
+                - /url: /blog/rio-sao-francisco-turismo
+            - paragraph [ref=f12e117]: Turismo de natureza, fé e cultura como motor de renda para as cidades ribeirinhas.
+            - link "Ler mais →" [ref=f12e118] [cursor=pointer]:
+              - /url: /blog/rio-sao-francisco-turismo
+        - article [ref=f12e119]:
+          - link [ref=f12e120] [cursor=pointer]:
+            - /url: /blog/quem-produz-merece-respeito
+            - img "Comunidade do interior de Minas Gerais reunida" [ref=f12e121]
+          - generic [ref=f12e122]:
+            - time [ref=f12e123]: 17 de junho de 2026
+            - heading [level=3] [ref=f12e124]:
+              - link "Quem produz merece respeito" [ref=f12e125] [cursor=pointer]:
+                - /url: /blog/quem-produz-merece-respeito
+            - paragraph [ref=f12e126]: Agricultura familiar com irrigação, estradas, energia, crédito rural e segurança hídrica.
+            - link "Ler mais →" [ref=f12e127] [cursor=pointer]:
+              - /url: /blog/quem-produz-merece-respeito
+    - generic [ref=f12e129]:
+      - generic [ref=f12e130]:
+        - paragraph [ref=f12e131]: Bandeiras principais
+        - heading "Quatro frentes pra fazer o Norte de Minas voltar a crescer." [level=2] [ref=f12e132]
+      - generic [ref=f12e133]:
+        - img "Rio São Francisco, agricultura irrigada e comunidades rurais do Norte de Minas" [ref=f12e134]
+        - generic [ref=f12e135]:
+          - paragraph [ref=f12e136]: Desenvolvimento regional
+          - heading "O Rio São Francisco, o campo e as cidades pequenas precisam estar no centro das decisões." [level=3] [ref=f12e137]
+          - list [ref=f12e138]:
+            - listitem [ref=f12e139]: Água, irrigação e segurança hídrica para quem produz
+            - listitem [ref=f12e140]: Estradas vicinais, acesso a mercados e apoio ao pequeno produtor
+            - listitem [ref=f12e141]: Turismo de natureza, fé, gastronomia e cultura no Rio São Francisco
+      - generic [ref=f12e142]:
+        - article [ref=f12e143]:
+          - generic [ref=f12e144]: "01"
+          - generic [ref=f12e145]:
+            - heading "Educação que transforma" [level=3] [ref=f12e146]
+            - paragraph [ref=f12e147]: Fortalecer a FUCAM, revitalizar as Escolas Caio Martins e ampliar o ensino técnico para os jovens do interior.
+        - article [ref=f12e148]:
+          - generic [ref=f12e149]: "02"
+          - generic [ref=f12e150]:
+            - heading "Emprego e renda" [level=3] [ref=f12e151]
+            - paragraph [ref=f12e152]: Atrair empresas, apoiar o comércio local, incentivar a agroindústria e qualificar a mão de obra da região. O maior programa social é o emprego.
+        - article [ref=f12e153]:
+          - generic [ref=f12e154]: "03"
+          - generic [ref=f12e155]:
+            - heading "Rio, turismo e cultura" [level=3] [ref=f12e156]
+            - paragraph [ref=f12e157]: Estruturar a rota turística do Rio São Francisco, valorizar a fé, a gastronomia, as praias fluviais e o Parque do Peruaçu.
+        - article [ref=f12e158]:
+          - generic [ref=f12e159]: "04"
+          - generic [ref=f12e160]:
+            - heading "Quem produz merece respeito" [level=3] [ref=f12e161]
+            - paragraph [ref=f12e162]: Defender a agricultura familiar com irrigação, estradas, energia, crédito rural e segurança hídrica.
+    - generic [ref=f12e164]:
+      - generic [ref=f12e165]:
+        - paragraph [ref=f12e166]: Rede de apoio
+        - heading "Some sua voz à nossa." [level=2] [ref=f12e167]
+        - paragraph [ref=f12e168]: Entre na mobilização por uma voz forte pra São Francisco, o Norte de Minas, Esmeraldas, Caeté e Belo Horizonte.
+        - generic [ref=f12e169]:
+          - link "(31) 99853-3595" [ref=f12e170] [cursor=pointer]:
+            - /url: tel:+5531998533595
+          - link "jornalistaalanleal@gmail.com" [ref=f12e171] [cursor=pointer]:
+            - /url: mailto:jornalistaalanleal@gmail.com
+          - link "@dr_amauriwr" [ref=f12e172] [cursor=pointer]:
+            - /url: https://www.instagram.com/dr_amauriwr
+      - generic [ref=f12e173]:
+        - heading "Fale direto pelo WhatsApp" [level=3] [ref=f12e177]
+        - paragraph [ref=f12e178]: Mande sua mensagem e some sua voz à nossa mobilização. É rápido e direto.
+        - link "Falar no WhatsApp" [ref=f12e179] [cursor=pointer]:
+          - /url: https://wa.me/5531998533595?text=Ol%C3%A1%2C%20quero%20apoiar%20a%20campanha%20do%20Amauri%20Dami%C3%A3o.
+  - contentinfo [ref=f12e180]:
+    - generic [ref=f12e181]:
+      - generic [ref=f12e182]:
+        - img "Amauri Damião" [ref=f12e184]
+        - generic [ref=f12e185]:
+          - strong [ref=f12e186]: Amauri Damião
+          - paragraph [ref=f12e187]: Pré-candidato a Deputado Estadual · Democrata
+      - img "Democrata" [ref=f12e189]
+      - generic [ref=f12e190]:
+        - link "Blog" [ref=f12e191] [cursor=pointer]:
+          - /url: /blog
+        - link "WhatsApp" [ref=f12e192] [cursor=pointer]:
+          - /url: https://wa.me/5531998533595?text=Ol%C3%A1%2C%20quero%20apoiar%20a%20campanha%20do%20Amauri%20Dami%C3%A3o.
+        - link "Instagram" [ref=f12e193] [cursor=pointer]:
+          - /url: https://www.instagram.com/dr_amauriwr
+        - generic [ref=f12e194]: São Francisco · Norte de Minas
+  - link "Falar pelo WhatsApp" [ref=f12e195] [cursor=pointer]:
+    - /url: https://wa.me/5531998533595?text=Ol%C3%A1%2C%20quero%20apoiar%20a%20campanha%20do%20Amauri%20Dami%C3%A3o.
+    - strong [ref=f12e198]: WhatsApp
+  - generic [ref=f12e201]:
+    - button [ref=f12e202]
+    - button [ref=f12e208]
+    - button [ref=f12e212]
+    - button [ref=f12e217]

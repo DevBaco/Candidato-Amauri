@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Amauri Damião">
+  <defs>
+    <linearGradient id="bg" x1="8" y1="4" x2="58" y2="62" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1d5a57" />
+      <stop offset="1" stop-color="#0f3b33" />
+    </linearGradient>
+    <linearGradient id="swoosh" x1="18" y1="38" x2="52" y2="19" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7aa48d" />
+      <stop offset="1" stop-color="#34a853" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="url(#bg)" />
+  <path d="M13 44 27.1 13h10.2L51 44H40.7l-2.5-6.4H25.5L23 44H13Zm15.6-14.7h6.6l-3.3-9-3.3 9Z" fill="#fff" />
+  <path d="M16 38.5c10.2-7 22.3-11.6 36.8-13.8-11.5 4.6-21.9 10.2-31.2 16.9L16 38.5Z" fill="url(#swoosh)" />
+  <rect x="13" y="49" width="38" height="5" rx="2.5" fill="#f4b81e" />
+</svg>
