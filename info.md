@@ -8,7 +8,7 @@ Partido: Democrata
 Número: 35777
 Cidade-base: São Francisco - MG
 Telefone: (31) 99853-3595
-E-mail: jornalistaalanleal@gmail.com
+E-mail: Amauriwr84@gmail.com
 Instagram: @dr_amauriwr
 
 Objetivo da Landing Page
@@ -185,8 +185,8 @@ Busca representantes próximos do povo.
 Acredita que o Norte de Minas é pouco representado.
 Identidade Visual
 
-Cores: #7aa48d
-#1d5a57 
+Cores: #00214a (azul-marinho dominante)
+#f95b02 (laranja de acento)
 
 Conteúdos para Redes Sociais
 
