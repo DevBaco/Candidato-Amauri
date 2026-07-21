@@ -13,9 +13,10 @@ const navItems = [
 ];
 
 const dateFmt = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
+const HOME_BLOG_LIMIT = 3;
 const posts = (await getCollection('noticias', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 3);
+  .slice(0, HOME_BLOG_LIMIT);
 
 const timeline = [
   {
@@ -142,7 +143,7 @@ const regionalPlan = [
           </p>
 
           <div class="hero-actions">
-            <a class="btn hero-primary" href={whatsappHref} target="_blank" rel="noreferrer">
+            <a class="btn hero-primary btn-whatsapp" data-whatsapp href={whatsappHref} target="_blank" rel="noreferrer">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.1.1.3 0 .5-.3.5-.5.7-.7 1-.2.2-.4.5-.2.8.2.4.9 1.5 2 2.4 1.3 1.2 2.4 1.5 2.7 1.7.3.1.5.1.7-.1.2-.3.8-.9 1-1.2.2-.3.4-.2.7-.1.3.1 1.8.8 2.1 1 .3.1.5.2.6.3.1.2.1.7-.1 1.3Z" />
               </svg>
@@ -189,44 +190,15 @@ const regionalPlan = [
               ))
             }
           </div>
+          <div class="section-actions">
+            <a class="btn btn-outline" href="#bandeiras">Conheça as propostas</a>
+            <a class="btn btn-whatsapp" data-whatsapp href={whatsappHref} target="_blank" rel="noreferrer">Fale com o Amauri</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- MINAS QUE EDUCA -->
-    <section class="section education-band">
-      <div class="education-band-bg" aria-hidden="true">
-        <img src="/assets/ia-turma-escola-mg.png" alt="" width="1680" height="960" />
-      </div>
-      <div class="container education-panel reveal">
-        <p class="eyebrow on-dark">Minas que educa</p>
-        <h2 class="title">A escola precisa abrir caminho para o trabalho, a cidadania e a permanência no interior.</h2>
-        <p class="lead">
-          A proposta é tratar educação como infraestrutura de futuro: salas bem cuidadas, ensino técnico, esporte,
-          cultura e formação conectada com a vida real das famílias mineiras.
-        </p>
-        <div class="impact-strip" aria-label="Resumo das prioridades">
-          {
-            impactStats.map((item) => (
-              <article>
-                <span class="impact-ico" set:html={impactIcons[item.icon]} />
-                <span>{item.label}</span>
-              </article>
-            ))
-          }
-        </div>
-      </div>
-    </section>
-
-    <!-- CITAÇÃO -->
-    <section class="section band-quote">
-      <div class="container reveal">
-        <blockquote>A educação transformou minha vida, e pode transformar a vida de milhares de jovens mineiros.</blockquote>
-        <cite>Amauri Damião</cite>
-      </div>
-    </section>
-
-    <!-- BLOG -->
+    <!-- BLOG — terceira seção da home -->
     <section id="blog" class="section section-dark">
       <div class="container">
         <div class="section-head reveal blog-head">
@@ -234,7 +206,7 @@ const regionalPlan = [
             <p class="eyebrow on-dark">Blog</p>
             <h2 class="title">Ideias, propostas e a caminhada pelo Norte de Minas.</h2>
           </div>
-          <a class="btn btn-outline" href="/blog">Ver todos</a>
+          <a class="btn btn-outline" href="/blog">Ver todas as postagens</a>
         </div>
 
         {
@@ -260,6 +232,43 @@ const regionalPlan = [
             </div>
           )
         }
+      </div>
+    </section>
+
+    <!-- MINAS QUE EDUCA -->
+    <section class="section education-band">
+      <div class="education-band-bg" aria-hidden="true">
+        <img src="/assets/ia-turma-escola-mg.png" alt="" width="1680" height="960" />
+      </div>
+      <div class="container education-panel reveal">
+        <p class="eyebrow on-dark">Minas que educa</p>
+        <h2 class="title">A escola precisa abrir caminho para o trabalho, a cidadania e a permanência no interior.</h2>
+        <p class="lead">
+          A proposta é tratar educação como infraestrutura de futuro: salas bem cuidadas, ensino técnico, esporte,
+          cultura e formação conectada com a vida real das famílias mineiras.
+        </p>
+        <div class="impact-strip" aria-label="Resumo das prioridades">
+          {
+            impactStats.map((item) => (
+              <article>
+                <span class="impact-ico" set:html={impactIcons[item.icon]} />
+                <span>{item.label}</span>
+              </article>
+            ))
+          }
+        </div>
+        <div class="section-actions section-actions-on-dark">
+          <a class="btn btn-milho" href="#apoie">Apoie essa transformação</a>
+          <a class="btn btn-whatsapp" data-whatsapp href={whatsappHref} target="_blank" rel="noreferrer">Converse pelo WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CITAÇÃO -->
+    <section class="section band-quote">
+      <div class="container reveal">
+        <blockquote>A educação transformou minha vida, e pode transformar a vida de milhares de jovens mineiros.</blockquote>
+        <cite>Amauri Damião</cite>
       </div>
     </section>
 
@@ -298,6 +307,17 @@ const regionalPlan = [
             ))
           }
         </div>
+        <aside class="midpage-cta reveal">
+          <div>
+            <p class="eyebrow">Participe</p>
+            <h3>Uma campanha construída ouvindo quem vive a realidade de Minas.</h3>
+            <p>Envie sua ideia, conte o que sua cidade precisa e ajude a fortalecer nossas propostas.</p>
+          </div>
+          <div class="midpage-cta-actions">
+            <a class="btn btn-whatsapp" data-whatsapp href={whatsappHref} target="_blank" rel="noreferrer">Enviar ideia pelo WhatsApp</a>
+            <a class="btn btn-outline" href="#apoie">Quero participar</a>
+          </div>
+        </aside>
       </div>
     </section>
 
@@ -325,7 +345,7 @@ const regionalPlan = [
           </span>
           <h3>Fale direto pelo WhatsApp</h3>
           <p>Mande sua mensagem e some sua voz à nossa mobilização. É rápido e direto.</p>
-          <a class="btn btn-milho" data-whatsapp href={whatsappHref} target="_blank" rel="noreferrer" style="width:100%">Falar no WhatsApp</a>
+          <a class="btn btn-whatsapp" data-whatsapp href={whatsappHref} target="_blank" rel="noreferrer" style="width:100%">Falar no WhatsApp</a>
         </div>
       </div>
     </section>

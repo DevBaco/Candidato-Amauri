@@ -171,6 +171,17 @@
   }
   .btn-milho:hover { background: var(--gold-bright); }
 
+  .btn-whatsapp {
+    background: #25d366;
+    color: #fff;
+    box-shadow: 0 10px 24px rgb(37 211 102 / 0.2);
+  }
+  .btn-whatsapp:hover {
+    background: #1ebe5d;
+    color: #fff;
+    box-shadow: 0 13px 28px rgb(37 211 102 / 0.28);
+  }
+
   .btn:active { transform: translateY(1px); }
 
   /* ---------- cabeçalho ---------- */
@@ -397,6 +408,8 @@
     box-shadow: 0 12px 28px rgb(0 0 0 / 0.2);
   }
   .hero-primary:hover { background: var(--gold-bright); transform: translateY(-2px); }
+  .hero-primary.btn-whatsapp { background: #25d366; color: #fff; }
+  .hero-primary.btn-whatsapp:hover { background: #1ebe5d; }
   .hero-primary svg { width: 20px; height: 20px; }
   .hero-secondary {
     font-family: var(--font-sans);
@@ -656,6 +669,14 @@
     font-size: 17px;
     line-height: 1.6;
   }
+  .section-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 30px;
+  }
+  .section-actions-on-dark .btn-milho { box-shadow: 0 10px 24px rgb(0 23 51 / 0.2); }
 
   @media (min-width: 880px) {
     .story-grid { grid-template-columns: 0.85fr 1.15fr; }
@@ -840,6 +861,38 @@
   }
   @media (min-width: 820px) {
     .platform { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  .midpage-cta {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    align-items: center;
+    margin-top: clamp(40px, 6vw, 68px);
+    padding: clamp(28px, 5vw, 48px);
+    border: 1px solid var(--linha);
+    border-radius: 20px;
+    background: var(--osso-2);
+  }
+  .midpage-cta .eyebrow { margin-bottom: 12px; }
+  .midpage-cta h3 {
+    max-width: 24ch;
+    margin: 0;
+    color: var(--mata);
+    font: 800 clamp(25px, 3.5vw, 36px)/1.08 var(--font-sans);
+    text-wrap: balance;
+  }
+  .midpage-cta p:not(.eyebrow) {
+    max-width: 60ch;
+    margin: 14px 0 0;
+    color: var(--tinta-soft);
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  .midpage-cta-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  @media (min-width: 900px) {
+    .midpage-cta { grid-template-columns: minmax(0, 1fr) auto; }
+    .midpage-cta-actions { max-width: 330px; justify-content: flex-end; }
   }
 
   /* ---------- quem representa ---------- */
@@ -1131,9 +1184,50 @@
   }
   .blog-list {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 380px));
+    justify-content: start;
     gap: 26px;
     margin-top: 40px;
+  }
+
+  .blog-pagination {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-top: clamp(42px, 6vw, 64px);
+    padding-top: 28px;
+    border-top: 1px solid var(--linha);
+  }
+  .pagination-pages { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+  .pagination-link {
+    display: inline-grid;
+    place-items: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding-inline: 12px;
+    border: 1px solid var(--linha);
+    border-radius: 999px;
+    background: var(--osso-3);
+    color: var(--mata);
+    font: 800 13px/1 var(--font-sans);
+    text-decoration: none;
+    transition: border-color 150ms ease, background-color 150ms ease, color 150ms ease;
+  }
+  .pagination-link:hover,
+  .pagination-link.is-current {
+    border-color: var(--mata);
+    background: var(--mata);
+    color: #fff;
+  }
+  .pagination-link.is-current { pointer-events: none; }
+  .pagination-link.is-disabled { opacity: 0.42; cursor: not-allowed; }
+  .pagination-direction { min-width: 112px; }
+
+  @media (max-width: 560px) {
+    .blog-pagination { justify-content: center; }
+    .pagination-pages { order: -1; width: 100%; }
   }
   .blog-card {
     display: flex;
@@ -1150,7 +1244,7 @@
   }
   .blog-card-media {
     display: block;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
   }
   .blog-card-media img {
@@ -1203,26 +1297,37 @@
   }
   .blog-more:hover { color: var(--gold-muted); }
 
-  @media (min-width: 720px) {
-    .blog-list { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (min-width: 1040px) {
-    .blog-list { grid-template-columns: repeat(3, 1fr); }
-  }
-
   /* blog: página cheia e post */
   .blog-page { padding-top: 84px; }
-  .post { max-width: 760px; margin-inline: auto; }
+  .post { max-width: 800px; margin-inline: auto; }
+  .post > .title {
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1.03;
+  }
   .post-back {
-    display: inline-block;
-    margin-bottom: 22px;
+    display: flex;
+    width: max-content;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 28px;
+    padding: 9px 14px;
+    border: 1px solid var(--linha);
+    border-radius: 999px;
+    background: var(--osso-3);
     font-family: var(--font-sans);
     font-weight: 700;
     font-size: 14px;
     color: var(--mata-2);
     text-decoration: none;
+    transition: border-color 150ms ease, background-color 150ms ease, color 150ms ease, transform 150ms ease;
   }
-  .post-back:hover { color: var(--gold-muted); }
+  .post-back span { font-size: 18px; line-height: 1; }
+  .post-back:hover {
+    border-color: var(--mata);
+    background: var(--mata);
+    color: #fff;
+    transform: translateX(-2px);
+  }
   .post-meta {
     display: flex;
     gap: 8px;
@@ -1234,25 +1339,89 @@
     color: var(--mata-2);
   }
   .post-cover {
-    margin: 0 0 30px;
-    border-radius: 4px;
+    width: min(100%, 640px);
+    aspect-ratio: 16 / 9;
+    margin: 0 auto 36px;
+    border-radius: 18px;
     overflow: hidden;
+    box-shadow: 0 20px 48px rgb(0 33 74 / 0.14);
   }
-  .post-cover img { width: 100%; height: auto; margin: 0; display: block; }
+  .post-cover img {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: block;
+    object-fit: cover;
+    object-position: center 48%;
+  }
   .post-content { font: 400 18px/1.7 var(--font-serif); color: var(--tinta, #071a33); }
+  .post-content > p:first-child {
+    font-size: clamp(20px, 2.6vw, 23px);
+    line-height: 1.6;
+    color: var(--mata-2);
+  }
   .post-content h2 {
     font-family: var(--font-sans);
     font-weight: 800;
-    font-size: 24px;
+    font-size: clamp(26px, 3.5vw, 32px);
     letter-spacing: -0.01em;
     color: var(--mata);
-    margin: 34px 0 14px;
+    margin: 48px 0 16px;
   }
   .post-content p { margin: 0 0 18px; }
   .post-content ul { margin: 0 0 18px; padding-left: 22px; }
   .post-content li { margin-bottom: 8px; }
   .post-content a { color: var(--mata-2); }
-  .post-cta { display: inline-block; margin-top: 30px; }
+  .post-content blockquote {
+    margin: 42px 0;
+    padding: 24px clamp(22px, 4vw, 34px);
+    border-left: 5px solid var(--milho);
+    background: var(--osso-2);
+    color: var(--mata);
+    font-size: clamp(21px, 3vw, 27px);
+    font-style: italic;
+    line-height: 1.45;
+  }
+  .post-content blockquote p { margin: 0; }
+  .post-source {
+    display: block;
+    margin-top: 44px;
+    padding: 22px 24px;
+    border: 1px solid var(--linha);
+    border-radius: 14px;
+    background: var(--osso-2);
+    color: var(--tinta-soft);
+    font: 400 15px/1.6 var(--font-sans);
+  }
+  .post-source strong { color: var(--mata); }
+  .post-conversion {
+    margin-top: clamp(48px, 7vw, 72px);
+    padding: clamp(28px, 5vw, 48px);
+    border-radius: 20px;
+    background: var(--mata);
+    color: var(--osso);
+  }
+  .post-conversion .eyebrow { margin-bottom: 12px; color: var(--gold-muted); }
+  .post-conversion h2 {
+    margin: 0;
+    color: #fff;
+    font: 800 clamp(28px, 4vw, 38px)/1.08 var(--font-sans);
+  }
+  .post-conversion > p:not(.eyebrow) {
+    max-width: 54ch;
+    margin: 16px 0 0;
+    color: var(--folha-clara);
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  .post-cta-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+  .post-cta { margin: 0; }
+  .post-conversion .btn-outline { border-color: rgb(255 255 255 / 0.62); color: #fff; }
+  .post-conversion .btn-outline:hover { border-color: #fff; background: #fff; color: var(--mata); }
+
+  @media (max-width: 560px) {
+    .post-cta-actions .btn { width: 100%; }
+  }
 
   /* ---------- CTA whatsapp (apoie) ---------- */
   .support-cta {
